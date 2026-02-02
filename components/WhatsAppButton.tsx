@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhatsAppButton = () => {
   // Configure aqui o seu número e mensagem
-  const phoneNumber = "5511999999999"; // Apenas números (DDI + DDD + Número)
+  const phoneNumber = "5519981382425"; // Apenas números (DDI + DDD + Número)
   const message = "Olá! Vim pelo site e gostaria de mais informações.";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
