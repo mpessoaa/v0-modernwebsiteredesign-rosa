@@ -75,6 +75,7 @@ export default function RootLayout({
         </noscript>
 
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   )
