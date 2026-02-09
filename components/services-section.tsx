@@ -15,7 +15,7 @@ const services = [
     title: "Psicoterapia Individual",
     description:
       "Sessões online individuais focadas no seu processo de autoconhecimento e cura emocional. Um espaço seguro para você se reconectar consigo mesma.",
-    features: ["Sessões de 50 minutos", "Online ou Presencial", "Horários flexíveis"],
+    features: ["Sessões de 50 minutos", "Online", "Horários flexíveis"],
     href: "/servicos/psicoterapia",
     image: "/images/cristiane-therapy-office.jpg",
   },
