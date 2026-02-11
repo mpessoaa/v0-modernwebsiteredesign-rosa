@@ -202,43 +202,14 @@ export default function PsicoterapiaPage() {
                 </div>
 
                 {/* Investment */}
-                <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-primary/10">
-                  <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                    <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                    <h2 className="font-serif text-xl sm:text-2xl font-medium text-foreground">Investimento</h2>
-                  </div>
-                  <ul className="space-y-3 sm:space-y-4 text-muted-foreground mb-4 sm:mb-6">
-                    <li className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
-                      <span className="text-base sm:text-lg">
-                        Sessão avulsa: <strong className="text-foreground">R$ 240,00</strong>
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-base sm:text-lg">
-                        Pacote mensal (4 sessões): <strong className="text-foreground">R$ 720,00</strong>
-                        <span className="block text-xs sm:text-sm text-muted-foreground mt-1">
-                          *desconto válido apenas para sessões online
-                        </span>
-                      </span>
-                    </li>
-                  </ul>
-                  <div className="flex items-start gap-3 p-4 bg-primary/5 rounded-xl">
-                    <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <p className="text-primary italic text-xs sm:text-sm leading-relaxed">
-                      Reconhecendo a falta de equidade e as desigualdades sociais em que vivemos, reservo parte da minha
-                      agenda para atendimentos com valores sociais. Se precisar, me escreva, podemos conversar.
-                    </p>
-                  </div>
-                </div>
+                
 
                 {/* Notes */}
                 <div className="bg-secondary/50 p-5 sm:p-6 rounded-xl sm:rounded-2xl space-y-3">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
                     <p className="text-muted-foreground text-xs sm:text-sm">
-                      Atendimento presencial em Campinas/SP em dias específicos.
+                      Atendimento oneline em dias específicos.
                     </p>
                   </div>
                   <p className="text-muted-foreground text-xs sm:text-sm">
