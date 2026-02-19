@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Cristiane Melo | Psicóloga - Psicoterapia Online para Mulheres",
   description:
     "Psicoterapia online para mulheres que querem romper ciclos emocionais e se reencontrar. Agende sua sessão com Cristiane Melo, psicóloga humanista e feminista. CRP 06/134855",
-  generator: "v0.app",
+  generator: "",
   keywords: ["psicóloga", "psicoterapia", "mulheres", "terapia online", "Campinas", "CRP 06/134855"],
   authors: [{ name: "Cristiane Melo" }],
   icons: {
