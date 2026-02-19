@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   keywords: ["psicóloga", "psicoterapia", "mulheres", "terapia online", "Campinas", "CRP 06/134855"],
   authors: [{ name: "Cristiane Melo" }],
   icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
+    icon: "/images/psi-symbol.png",
+    apple: "/images/psi-symbol.png",
   },
   openGraph: {
     title: "Cristiane Melo | Psicóloga",
