@@ -16,9 +16,7 @@ export async function GET(request: NextRequest) {
         filename: "Desvendando-Violencia-Psicologica.pdf",
         path: "/ebooks/desvendando-violencia-psicologica.pdf",
       },
-      "quando-amor-adoece": {
-        filename: "Quando-Amor-Adoece.pdf",
-        path: "/ebooks/quando-amor-adoece.pdf",
+      
       },
     }
 
