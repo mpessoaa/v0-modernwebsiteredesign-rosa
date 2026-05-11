@@ -15,9 +15,7 @@ export async function GET(request: NextRequest) {
       "violencia-psicologica": {
         filename: "Desvendando-Violencia-Psicologica.pdf",
         path: "/ebooks/desvendando-violencia-psicologica.pdf",
-      },
-      
-      
+      }
     }
 
     const ebookInfo = ebookFiles[ebookId]
@@ -73,8 +71,7 @@ export async function POST(request: NextRequest) {
       "violencia-psicologica": {
         filename: "Desvendando-Violencia-Psicologica.pdf",
         path: "/ebooks/desvendando-violencia-psicologica.pdf",
-      },
-     
+      }
     }
 
     const ebookInfo = ebookFiles[ebookId]
