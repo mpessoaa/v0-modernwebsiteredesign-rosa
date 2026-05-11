@@ -22,21 +22,7 @@ const ebooks = [
     closingNote:
       "Um presente em formato de informação, acolhimento e empoderamento para quem já sofreu demais tentando ser amada.",
     coverImage: "/images/des.png",
-  },
-  {
-    id: "quando-amor-adoece",
-    title: "Quando o Amor Adoece",
-    subtitle: "Um livro-ritual para mulheres em travessia",
-    description:
-      "Nasceu da necessidade de nomear violências sutis, despertar consciências adormecidas e guiar mulheres de volta para si mesmas.",
-    fullDescription: [
-      "Com uma linguagem simbólica, poética e visceral, o livro conduz a leitora por um caminho de conscientização, reconhecimento das feridas, desconstrução de papéis impostos, fortalecimento emocional e rituais de resgate e reconexão.",
-      "Dividido em três partes - A mulher que espera, A mulher que desperta e A mulher que escolhe - o livro é uma jornada de transformação profunda.",
-      "Mais do que leitura, ele é uma vivência. Mais do que conteúdo, ele é espelho e convite para você voltar para si mesma.",
-    ],
-    closingNote: "Que este livro te faça companhia na travessia.",
-    coverImage: "/images/image.png",
-  },
+  }
 ]
 
 export function EbooksList() {
@@ -44,7 +30,8 @@ export function EbooksList() {
 
   return (
     <>
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {/* Mudei de grid-cols-2 para flexbox centralizado para o card não ficar esticado se houver apenas 1 e-book */}
+      <div className="flex justify-center max-w-5xl mx-auto">
         {ebooks.map((ebook, index) => (
           <motion.div
             key={ebook.id}
@@ -52,7 +39,7 @@ export function EbooksList() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="border border-border group hover:border-primary transition-colors"
+            className="border border-border group hover:border-primary transition-colors max-w-md w-full"
           >
             <div className="aspect-[4/5] relative bg-card border-b border-border overflow-hidden">
               <Image
