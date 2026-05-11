@@ -3,9 +3,9 @@ import { Footer } from "@/components/footer"
 import { EbooksList } from "@/components/ebooks-list"
 
 export const metadata = {
-  title: "E-books Gratuitos | Cristiane Melo",
+  title: "E-book Gratuito | Cristiane Melo",
   description:
-    "Baixe gratuitamente e-books sobre violência psicológica, relacionamentos abusivos e empoderamento feminino.",
+    "Baixe gratuitamente e-book sobre violência psicológica, relacionamentos abusivos e empoderamento feminino.",
 }
 
 export default function EbooksPage() {
@@ -19,10 +19,10 @@ export default function EbooksPage() {
             <p className="text-primary uppercase tracking-[0.3em] text-xs mb-4 font-mono">Materiais gratuitos</p>
             <h1 className="text-4xl md:text-7xl font-bold text-foreground mb-8 uppercase tracking-tight">E-books</h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Conteúdos criados com carinho para apoiar sua jornada de autoconhecimento, cura e libertação.
+              Conteúdo criado com carinho para apoiar sua jornada de autoconhecimento, cura e libertação.
             </p>
             <p className="text-muted-foreground mt-4 leading-relaxed">
-              Cada e-book é um presente em formato de informação, acolhimento e empoderamento para mulheres que já
+              Esse e-book é um presente em formato de informação, acolhimento e empoderamento para mulheres que já
               sofreram demais tentando ser amadas.
             </p>
           </div>
