@@ -65,13 +65,9 @@ export function EbookModalV2({ ebook, isOpen, onClose }: { ebook: EbookData; isO
     setError(null)
 
     try {
-      const pdfPath =
-        ebook.id === "violencia-psicologica"
-          ? "/ebooks/desvendando-violencia-psicologica.pdf"
-          : "/ebooks/quando-amor-adoece.pdf"
-
-      const fileName =
-        ebook.id === "violencia-psicologica" ? "Desvendando-Violencia-Psicologica.pdf" : "Quando-Amor-Adoece.pdf"
+      // Como agora só tem um e-book, podemos ir direto ao ponto
+      const pdfPath = "/ebooks/desvendando-violencia-psicologica.pdf"
+      const fileName = "Desvendando-Violencia-Psicologica.pdf"
 
       const link = document.createElement("a")
       link.href = pdfPath
