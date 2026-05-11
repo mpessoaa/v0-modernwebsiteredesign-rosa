@@ -21,20 +21,7 @@ const ebooks = [
     closingNote:
       "Um presente em formato de informação, acolhimento e empoderamento para quem já sofreu demais tentando ser amada.",
     coverImage: "/images/des.png",
-  },
-  {
-    id: "quando-amor-adoece",
-    title: "Quando o Amor Adoece",
-    subtitle: "Um livro-ritual para mulheres em travessia",
-    description:
-      "Nasceu da necessidade de nomear violências sutis, despertar consciências adormecidas e guiar mulheres de volta para si mesmas.",
-    fullDescription: [
-      "Com uma linguagem simbólica, poética e visceral, o livro conduz a leitora por um caminho de conscientização, reconhecimento das feridas, desconstrução de papéis impostos, fortalecimento emocional e rituais de resgate e reconexão.",
-      "Mais do que leitura, ele é uma vivência. Mais do que conteúdo, ele é espelho e convite.",
-    ],
-    closingNote: null,
-    coverImage: "/images/image.png",
-  },
+  }
 ]
 
 export function EbooksSection() {
@@ -59,7 +46,8 @@ export function EbooksSection() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        {/* Alterado para centralizar o único card */}
+        <div className="flex justify-center max-w-5xl mx-auto">
           {ebooks.map((ebook, index) => (
             <motion.div
               key={ebook.id}
@@ -67,7 +55,7 @@ export function EbooksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-card border border-border group flex flex-col"
+              className="bg-card border border-border group flex flex-col max-w-md w-full"
             >
               <div className="aspect-[3/4] relative bg-muted overflow-hidden">
                 <Image
