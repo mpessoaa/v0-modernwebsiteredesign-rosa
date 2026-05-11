@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
         path: "/ebooks/desvendando-violencia-psicologica.pdf",
       },
       
-      },
+      
     }
 
     const ebookInfo = ebookFiles[ebookId]
