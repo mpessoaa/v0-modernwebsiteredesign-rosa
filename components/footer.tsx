@@ -1,11 +1,12 @@
 "use client"
 
-import { Heart, Mail, Phone, Instagram } from "lucide-react"
+import { Heart, Mail, Phone, Instagram, Linkedin } from "lucide-react"
 
 const EMAIL = "crismelopsico@gmail.com"
 const WHATSAPP_NUMBER = "5519981382425"
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão.`
 const INSTAGRAM_URL = "https://www.instagram.com/psicrismelo?igsh=aGNwam56c2g0a3F4"
+const LINKEDIN_URL = "https://www.linkedin.com/in/psicrismelo/"
 
 const footerLinks = [
   {
@@ -22,6 +23,7 @@ const footerLinks = [
       { label: "Blog", href: "/blog" },
       { label: "Depoimentos", href: "/depoimentos" },
       { label: "Instagram", href: INSTAGRAM_URL },
+      { label: "LinkedIn", href: LINKEDIN_URL },
     ],
   },
   {
@@ -78,6 +80,16 @@ export function Footer() {
                 aria-label="Instagram @psicrismelo"
               >
                 <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Ver perfil no LinkedIn"
+                className="w-10 h-10 border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"
+                aria-label="LinkedIn Cristiane Melo"
+              >
+                <Linkedin className="w-4 h-4" />
               </a>
             </div>
           </div>
