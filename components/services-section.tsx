@@ -18,6 +18,8 @@ const services = [
     features: ["Sessões de 50 minutos", "Online", "Horários flexíveis"],
     href: "/servicos/psicoterapia",
     image: "/images/cristiane-therapy-office.jpg",
+    // Adicione o link da InfinitePay abaixo:
+    bookingUrl: "COLOQUE_SEU_LINK_DA_INFINITEPAY_AQUI", 
   },
   {
     id: "vivencia",
@@ -28,6 +30,7 @@ const services = [
     features: ["Grupos reduzidos", "Temas específicos", "Conexão entre mulheres"],
     href: "/servicos/vivencia-em-grupo",
     image: "/images/111.jpg",
+    // Se a vivência não tiver link direto de pagamento, basta não colocar o bookingUrl
   },
 ]
 
@@ -64,7 +67,7 @@ export function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-background p-8 md:p-10 group hover:bg-secondary transition-colors"
+              className="bg-background p-8 md:p-10 group hover:bg-secondary transition-colors flex flex-col h-full"
             >
               {service.image ? (
                 <div className="relative aspect-[16/10] mb-6 overflow-hidden border border-border">
@@ -80,8 +83,10 @@ export function ServicesSection() {
                   <service.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
               )}
+              
               <h3 className="text-xl font-bold text-foreground mb-4 uppercase tracking-tight">{service.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
+              <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">{service.description}</p>
+              
               <ul className="space-y-2 mb-8">
                 {service.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
@@ -90,15 +95,29 @@ export function ServicesSection() {
                   </li>
                 ))}
               </ul>
-              <Button
-                variant="ghost"
-                className="text-primary hover:text-primary hover:bg-transparent p-0 uppercase tracking-widest text-xs group/btn"
-                asChild
-              >
-                <Link href={service.href} onClick={(e) => handleServiceClick(e, service.href)}>
-                  Saiba mais
-                </Link>
-              </Button>
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-auto">
+                {service.bookingUrl && (
+                  <Button
+                    asChild
+                    className="bg-primary hover:bg-primary/80 text-primary-foreground uppercase tracking-wider text-xs px-6 py-5 rounded-none w-full sm:w-auto"
+                  >
+                    <a href={service.bookingUrl} target="_blank" rel="noopener noreferrer">
+                      Agendar Sessão
+                    </a>
+                  </Button>
+                )}
+                
+                <Button
+                  variant="ghost"
+                  className="text-primary hover:text-primary hover:bg-transparent p-0 uppercase tracking-widest text-xs group/btn"
+                  asChild
+                >
+                  <Link href={service.href} onClick={(e) => handleServiceClick(e, service.href)}>
+                    Saiba mais
+                  </Link>
+                </Button>
+              </div>
             </motion.div>
           ))}
         </div>
