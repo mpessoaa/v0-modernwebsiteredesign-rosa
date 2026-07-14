@@ -1,94 +1,99 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { Download } from "lucide-react"
+import { ArrowDown, CalendarCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { EbookModalV2 } from "@/components/ebook-modal-v2"
-import Image from "next/image"
+import dynamic from "next/dynamic"
+import { FlyingButterflies } from "@/components/flying-butterflies"
 
-const ebooks = [
-  {
-    id: "violencia-psicologica",
-    title: "Desvendando a Violência Psicológica",
-    subtitle: "Um guia para entender, superar e prevenir",
-    description:
-      "Um guia essencial para mulheres que desejam compreender, romper e se curar de relações marcadas pela violência emocional.",
-    fullDescription: [
-      "Neste eBook, você vai descobrir o que é a violência psicológica, como ela se manifesta nas palavras, silêncios e atitudes, e por que é tão difícil reconhecê-la quando se está envolvida.",
-      "A partir de uma abordagem sensível e informativa, este material ajuda você a identificar sinais de abuso, entender seus efeitos na saúde mental e retomar sua força interior para recomeçar com mais consciência, proteção e amor-próprio.",
-    ],
-    closingNote:
-      "Um presente em formato de informação, acolhimento e empoderamento para quem já sofreu demais tentando ser amada.",
-    coverImage: "/images/des.png",
-  }
-]
+const GL = dynamic(() => import("./gl").then((mod) => ({ default: mod.GL })), { ssr: false })
 
-export function EbooksSection() {
-  const [selectedEbook, setSelectedEbook] = useState<(typeof ebooks)[0] | null>(null)
+const ParticleWaveBackground = dynamic(
+  () => import("./particle-wave-background").then((mod) => mod.ParticleWaveBackground),
+  { ssr: false },
+)
 
+// COLOQUE AQUI O SEU LINK DA INFINITEPAY
+const INFINITEPAY_URL = "https://link.infinitepay.io/seu-link-aqui"
+
+export function HeroSection() {
   return (
-    <section id="ebooks" className="py-16 sm:py-24 md:py-32 border-t border-border">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="inicio" className="min-h-screen flex flex-col items-center justify-center relative bg-white pt-20">
+      <GL />
+      <FlyingButterflies />
+
+      {/* Content */}
+      <div className="w-full max-w-4xl mx-auto px-6 relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 sm:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-3 border border-primary/40 px-4 py-2 mb-8 bg-white/80 backdrop-blur-sm"
         >
-          <p className="text-primary uppercase tracking-[0.3em] text-xs mb-4 font-mono">Materiais gratuitos</p>
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground uppercase tracking-tight">
-            E-books
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground mt-4 max-w-2xl">
-            Conteúdos criados com carinho para apoiar sua jornada de autoconhecimento e cura
-          </p>
+          <span className="w-2 h-2 bg-primary rounded-full" />
+          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
+            Psicoterapia Online para Mulheres
+          </span>
         </motion.div>
 
-        {/* Alterado para centralizar o único card */}
-        <div className="flex justify-center max-w-5xl mx-auto">
-          {ebooks.map((ebook, index) => (
-            <motion.div
-              key={ebook.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-card border border-border group flex flex-col max-w-md w-full"
-            >
-              <div className="aspect-[3/4] relative bg-muted overflow-hidden">
-                <Image
-                  src={ebook.coverImage || "/placeholder.svg"}
-                  alt={`Capa do e-book ${ebook.title}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  priority={index === 0}
-                />
-              </div>
-              <div className="p-4 sm:p-6 md:p-8 flex-1 flex flex-col">
-                <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 uppercase tracking-tight">
-                  {ebook.title}
-                </h3>
-                <p className="text-xs text-primary mb-3 uppercase tracking-widest">{ebook.subtitle}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{ebook.description}</p>
-                <Button
-                  onClick={() => setSelectedEbook(ebook)}
-                  className="w-full bg-primary hover:bg-primary/80 text-primary-foreground uppercase tracking-widest text-xs py-4 sm:py-5"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Baixar Grátis
-                </Button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[0.9] tracking-tight mb-8"
+        >
+          Mulher, é hora de <span className="block mt-2 italic font-light text-muted-foreground">voltar pra você</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-light"
+        >
+          Psicoterapia para mulheres que desejam romper ciclos, curar feridas emocionais e ocupar, com coragem, o seu
+          lugar no mundo.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <Button
+            asChild
+            size="lg"
+            className="bg-primary hover:bg-primary/80 text-primary-foreground px-8 py-6 text-sm uppercase tracking-widest rounded-none"
+          >
+            <a href={INFINITEPAY_URL} target="_blank" rel="noopener noreferrer">
+              <CalendarCheck className="w-5 h-5 mr-3" />
+              Agendar Sessão
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="px-8 py-6 text-sm uppercase tracking-widest border-primary hover:bg-primary hover:text-primary-foreground bg-transparent text-muted-foreground rounded-none"
+          >
+            <a href="#sobre">Conheça meu trabalho</a>
+          </Button>
+        </motion.div>
       </div>
 
-      {selectedEbook && (
-        <EbookModalV2 ebook={selectedEbook} isOpen={!!selectedEbook} onClose={() => setSelectedEbook(null)} />
-      )}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-white/50 to-white pointer-events-none z-[5]" />
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      >
+        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
+          <ArrowDown className="w-6 h-6 text-primary/60" />
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
