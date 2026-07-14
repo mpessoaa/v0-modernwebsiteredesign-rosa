@@ -3,14 +3,16 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import { Menu, X, MessageCircle } from "lucide-react"
+import { Menu, X, MessageCircle, Instagram, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 
 const WHATSAPP_NUMBER = "5519981382425"
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Gostaria de agendar uma sessão.`
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão.`
+const INSTAGRAM_URL = "https://www.instagram.com/psicrismelo?igsh=aGNwam56c2g0a3F4"
+const LINKEDIN_URL = "https://www.linkedin.com/in/psicrismelo/"
 
 const navItems = [
   { label: "Início", href: "/" },
@@ -67,6 +69,7 @@ export function Header() {
           Cristiane Melo
         </a>
 
+        {/* Navegação Desktop */}
         <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => {
             const isHashLink = item.href.includes("#") && item.href !== "/"
@@ -107,7 +110,31 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        {/* Redes Sociais e Botão CTA Desktop */}
+        <div className="hidden lg:flex items-center gap-6">
+          <div className="flex items-center gap-4">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Instagram"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Instagram className="w-4 h-4" />
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="LinkedIn"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+          </div>
+          
+          <div className="w-px h-6 bg-border"></div> {/* Divisor vertical */}
+
           <Button
             asChild
             className="bg-primary hover:bg-primary/80 text-primary-foreground uppercase tracking-wider text-xs px-6 py-5 rounded-none"
@@ -119,6 +146,7 @@ export function Header() {
           </Button>
         </div>
 
+        {/* Botão Menu Mobile */}
         <button
           className="lg:hidden text-foreground hover:text-muted-foreground transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -128,7 +156,7 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Menu Mobile */}
       <div
         className={cn(
           "lg:hidden absolute top-full left-0 right-0 bg-background transition-all duration-300 overflow-hidden border-b border-border",
@@ -163,6 +191,7 @@ export function Header() {
               </Link>
             )
           })}
+          
           <Button
             asChild
             className="bg-primary hover:bg-primary/80 text-primary-foreground uppercase tracking-wider text-xs mt-2 rounded-none"
@@ -172,6 +201,28 @@ export function Header() {
               Agendar Sessão
             </a>
           </Button>
+
+          {/* Redes Sociais no Mobile */}
+          <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-border">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Instagram"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="LinkedIn"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
         </nav>
       </div>
     </header>
