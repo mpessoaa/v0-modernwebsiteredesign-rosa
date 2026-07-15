@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { MessageCircle } from "lucide-react"
+import { CalendarCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const WHATSAPP_NUMBER = "5519981382425"
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Gostaria de agendar uma sessão.`
+// COLOQUE AQUI O SEU LINK DA INFINITEPAY
+const INFINITEPAY_URL = "COLOQUE_SEU_LINK_DA_INFINITEPAY_AQUI"
 
 export function AboutSection() {
   return (
@@ -84,8 +84,8 @@ export function AboutSection() {
                 size="lg"
                 className="bg-primary hover:bg-primary/80 text-primary-foreground uppercase tracking-widest text-xs px-8 py-6"
               >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-5 h-5 mr-2" />
+                <a href={INFINITEPAY_URL} target="_blank" rel="noopener noreferrer">
+                  <CalendarCheck className="w-5 h-5 mr-2" />
                   Agendar Sessão
                 </a>
               </Button>
