@@ -19,7 +19,7 @@ const services = [
     href: "/servicos/psicoterapia",
     image: "/images/cristiane-therapy-office.jpg",
     // Adicione o link da InfinitePay abaixo:
-    bookingUrl: "COLOQUE_SEU_LINK_DA_INFINITEPAY_AQUI", 
+    bookingUrl: "https://loja.infinitepay.io/booking/psicrismelo", 
   },
   {
     id: "vivencia",
