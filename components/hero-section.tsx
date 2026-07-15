@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowDown, MessageCircle } from "lucide-react"
+import { ArrowDown, CalendarCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import dynamic from "next/dynamic"
 import { FlyingButterflies } from "@/components/flying-butterflies"
@@ -13,8 +13,7 @@ const ParticleWaveBackground = dynamic(
   { ssr: false },
 )
 
-const WHATSAPP_NUMBER = "5519981382425"
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Gostaria de agendar uma sessão.`
+const INFINITEPAY_URL = "https://loja.infinitepay.io/booking/psicrismelo"
 
 export function HeroSection() {
   return (
@@ -66,9 +65,9 @@ export function HeroSection() {
             size="lg"
             className="bg-primary hover:bg-primary/80 text-primary-foreground px-8 py-6 text-sm uppercase tracking-widest rounded-none"
           >
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-5 h-5 mr-3" />
-              Agendar via WhatsApp
+            <a href={INFINITEPAY_URL} target="_blank" rel="noopener noreferrer">
+              <CalendarCheck className="w-5 h-5 mr-3" />
+              Agendar Sessão
             </a>
           </Button>
           <Button
