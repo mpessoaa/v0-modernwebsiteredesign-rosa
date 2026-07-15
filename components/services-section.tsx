@@ -29,7 +29,7 @@ const services = [
       "Encontros em grupo para mulheres que desejam compartilhar experiências e crescer juntas. O poder da coletividade na cura.",
     features: ["Grupos reduzidos", "Temas específicos", "Conexão entre mulheres"],
     href: "/servicos/vivencia-em-grupo",
-    image: "/images/111.jpg",
+    image: "/images/grupo.jpeg",
     // Se a vivência não tiver link direto de pagamento, basta não colocar o bookingUrl
   },
 ]
