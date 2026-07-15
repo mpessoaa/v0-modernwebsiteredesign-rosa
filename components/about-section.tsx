@@ -6,7 +6,7 @@ import { CalendarCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 // COLOQUE AQUI O SEU LINK DA INFINITEPAY
-const INFINITEPAY_URL = "COLOQUE_SEU_LINK_DA_INFINITEPAY_AQUI"
+const INFINITEPAY_URL = "https://loja.infinitepay.io/booking/psicrismelo"
 
 export function AboutSection() {
   return (
