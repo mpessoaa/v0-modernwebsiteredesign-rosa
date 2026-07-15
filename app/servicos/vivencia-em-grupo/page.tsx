@@ -11,7 +11,7 @@ import Image from "next/image"
 
 const WHATSAPP_NUMBER = "5519981382425"
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Gostaria de saber mais sobre a Vivência em Grupo.`
-const GRUPO_IMAGE = "/images/111.jpg"
+const GRUPO_IMAGE = "/images/grupo.jpeg"
 
 const benefits = [
   "Libertar o que estava preso e resgatar o que estava perdido",
