@@ -1,99 +1,108 @@
 "use client"
 
+import type React from "react"
+
 import { motion } from "framer-motion"
-import { ArrowDown, CalendarCheck } from "lucide-react"
+import { User, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import dynamic from "next/dynamic"
-import { FlyingButterflies } from "@/components/flying-butterflies"
+import Link from "next/link"
+import Image from "next/image"
 
-const GL = dynamic(() => import("./gl").then((mod) => ({ default: mod.GL })), { ssr: false })
+const services = [
+  {
+    id: "psicoterapia",
+    icon: User,
+    title: "Psicoterapia Individual",
+    description:
+      "Sessões online individuais focadas no seu processo de autoconhecimento e cura emocional. Um espaço seguro para você se reconectar consigo mesma.",
+    features: ["Sessões de 50 minutos", "Online", "Horários flexíveis"],
+    href: "/servicos/psicoterapia",
+    image: "/images/cristiane-therapy-office.jpg",
+  },
+  {
+    id: "vivencia",
+    icon: Users,
+    title: "Vivência em Grupo",
+    description:
+      "Encontros em grupo para mulheres que desejam compartilhar experiências e crescer juntas. O poder da coletividade na cura.",
+    features: ["Grupos reduzidos", "Temas específicos", "Conexão entre mulheres"],
+    href: "/servicos/vivencia-em-grupo",
+    image: "/images/111.jpg",
+  },
+]
 
-const ParticleWaveBackground = dynamic(
-  () => import("./particle-wave-background").then((mod) => mod.ParticleWaveBackground),
-  { ssr: false },
-)
+export function ServicesSection() {
+  const handleServiceClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault()
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    }
+  }
 
-// COLOQUE AQUI O SEU LINK DA INFINITEPAY
-const INFINITEPAY_URL = "https://link.infinitepay.io/seu-link-aqui"
-
-export function HeroSection() {
   return (
-    <section id="inicio" className="min-h-screen flex flex-col items-center justify-center relative bg-white pt-20">
-      <GL />
-      <FlyingButterflies />
-
-      {/* Content */}
-      <div className="w-full max-w-4xl mx-auto px-6 relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-3 border border-primary/40 px-4 py-2 mb-8 bg-white/80 backdrop-blur-sm"
-        >
-          <span className="w-2 h-2 bg-primary rounded-full" />
-          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
-            Psicoterapia Online para Mulheres
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[0.9] tracking-tight mb-8"
-        >
-          Mulher, é hora de <span className="block mt-2 italic font-light text-muted-foreground">voltar pra você</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-light"
-        >
-          Psicoterapia para mulheres que desejam romper ciclos, curar feridas emocionais e ocupar, com coragem, o seu
-          lugar no mundo.
-        </motion.p>
-
+    <section id="servicos" className="py-24 md:py-32 bg-card border-t border-border">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
         >
-          <Button
-            asChild
-            size="lg"
-            className="bg-primary hover:bg-primary/80 text-primary-foreground px-8 py-6 text-sm uppercase tracking-widest rounded-none"
-          >
-            <a href={INFINITEPAY_URL} target="_blank" rel="noopener noreferrer">
-              <CalendarCheck className="w-5 h-5 mr-3" />
-              Agendar Sessão
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="px-8 py-6 text-sm uppercase tracking-widest border-primary hover:bg-primary hover:text-primary-foreground bg-transparent text-muted-foreground rounded-none"
-          >
-            <a href="#sobre">Conheça meu trabalho</a>
-          </Button>
+          <p className="text-primary uppercase tracking-[0.3em] text-xs mb-4 font-mono">Como posso te ajudar</p>
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground uppercase tracking-tight">Serviços</h2>
         </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-px bg-border">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-background p-8 md:p-10 group hover:bg-secondary transition-colors"
+            >
+              {service.image ? (
+                <div className="relative aspect-[16/10] mb-6 overflow-hidden border border-border">
+                  <Image
+                    src={service.image || "/placeholder.svg"}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ) : (
+                <div className="w-14 h-14 border border-border flex items-center justify-center mb-6 group-hover:border-primary group-hover:bg-primary/10 transition-colors">
+                  <service.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+              )}
+              <h3 className="text-xl font-bold text-foreground mb-4 uppercase tracking-tight">{service.title}</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
+              <ul className="space-y-2 mb-8">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <div className="w-1 h-1 bg-primary" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Button
+                variant="ghost"
+                className="text-primary hover:text-primary hover:bg-transparent p-0 uppercase tracking-widest text-xs group/btn"
+                asChild
+              >
+                <Link href={service.href} onClick={(e) => handleServiceClick(e, service.href)}>
+                  Saiba mais
+                </Link>
+              </Button>
+            </motion.div>
+          ))}
+        </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-white/50 to-white pointer-events-none z-[5]" />
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
-          <ArrowDown className="w-6 h-6 text-primary/60" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }
